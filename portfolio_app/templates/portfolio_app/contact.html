@@ -17,25 +17,28 @@ Contact Page
 
     <form method="post">
         {% csrf_token %}
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" name="name" id="name">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingname" name="name" placeholder="Enter your name" required>
+            <label for="floatingname">Name</label>
+        </div>
 
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com" required>
+            <label for="floatingInput">Email address</label>
         </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+
+        <div class="form-floating mb-3">
+            <input type="tel" class="form-control" id="floatingphone" name="phone" placeholder="Enter your phone number">
+            <label for="floatingphone">Phone number</label>
         </div>
-        <div class="mb-3">
-            <label for="phone" class="form-label">Phone number</label>
-            <input type="text" class="form-control" name="phone" id="phone">
+
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a message here" name="message" id="floatingTextarea" required></textarea>
+            <label for="floatingTextarea">Message</label>
         </div>
-        <div class="mb-3">
-            <label class="form-label" for="message">Message</label>
-            <textarea class="form-control" aria-label="With textarea" name="message" id="message"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+
+        <button type="submit" class="btn btn-success my-5">Submit</button>
     </form>
 </div>
 {% endblock  %}
