@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+Home Page
+{% endblock %}
+
+{% block content %}
+
+<!-- Introductory Alert -->
+<div class="alert alert-dark alert-dismissible fade show mt-3 shadow-sm" role="alert">
+  <strong>Hello Visitor!</strong> I am looking for an Internship in Django. Feel free to contact me!
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<!-- Hero Section -->
+<div class="container my-5 text-center">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-4 mb-4">
+      <img src="{% static 'images/aryush.jpg' %}" class="rounded-circle img-fluid shadow border border-3 border-light" alt="Profile Photo" style="max-width: 200px;">
+    </div>
+    <div class="col-md-8">
+      <h1 class="display-4 fw-bold">Hello, I'm Aryush Khatri</h1>
+      <p class="lead text-muted">Django Developer • Backend Enthusiast • Based in Nepal</p>
+      <a href="#projects" class="btn btn-outline-dark btn-lg mt-3">Resume</a>
+      <a href="#projects" class="btn btn-dark btn-lg mt-3">Projects</a>
+    </div>
+  </div>
+</div>
+
+<!-- Skills Section -->
+<div class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center fw-semibold mb-4">Skills & Tools</h2>
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+      <span class="badge rounded-pill bg-dark px-4 py-2"><i class="bi bi-code-slash me-1"></i> Django</span>
+      <span class="badge rounded-pill bg-dark px-4 py-2"><i class="fab fa-python me-1"></i> Python</span>
+      <span class="badge rounded-pill bg-dark px-4 py-2"><i class="bi bi-palette me-1"></i> Figma</span>
+      <span class="badge rounded-pill bg-dark px-4 py-2"><i class="bi bi-filetype-html me-1"></i> HTML</span>
+      <span class="badge rounded-pill bg-dark px-4 py-2"><i class="bi bi-filetype-css me-1"></i> CSS</span>
+      <span class="badge rounded-pill bg-dark px-4 py-2"><i class="bi bi-filetype-js me-1"></i> JavaScript</span>
+      <span class="badge rounded-pill bg-dark px-4 py-2"><i class="bi bi-bootstrap me-1"></i> Bootstrap</span>
+      <span class="badge rounded-pill bg-dark px-4 py-2"><i class="bi bi-hdd-network me-1"></i> MySQL</span>
+    </div>
+  </div>
+</div>
+
+<!-- Projects Highlights -->
+<h2 class="text-center mt-5">Projects Highlights</h2>
+<div class="container my-4">
+  <div class="row g-3">
+    <!-- Project Card 1 -->
+    <div class="col-md-3">
+      <div class="card text-bg-dark h-100 shadow-sm hover-shadow">
+        <div class="card-header">Project One</div>
+        <div class="card-body">
+          <h5 class="card-title">Innovative Web App</h5>
+          <p class="card-text">A sleek and efficient solution crafted with Django and Bootstrap to provide a seamless user experience.</p>
+          <a href="#" class="btn btn-secondary">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- Project Card 2 -->
+    <div class="col-md-3">
+      <div class="card text-bg-dark h-100 shadow-sm hover-shadow">
+        <div class="card-header">Project Two</div>
+        <div class="card-body">
+          <h5 class="card-title">E-commerce Platform</h5>
+          <p class="card-text">Developed a robust platform integrating secure payment gateways and intuitive design patterns.</p>
+          <a href="#" class="btn btn-secondary">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- Project Card 3 -->
+    <div class="col-md-3">
+      <div class="card text-bg-dark h-100 shadow-sm hover-shadow">
+        <div class="card-header">Project Three</div>
+        <div class="card-body">
+          <h5 class="card-title">Data Analysis Tool</h5>
+          <p class="card-text">A tool designed to translate complex data sets into actionable insights with beautiful visualizations.</p>
+          <a href="#" class="btn btn-secondary">View Details</a>
+        </div>
+      </div>
+    </div>
+    <!-- Project Card 4 -->
+    <div class="col-md-3">
+      <div class="card text-bg-dark h-100 shadow-sm hover-shadow">
+        <div class="card-header">Project Four</div>
+        <div class="card-body">
+          <h5 class="card-title">API Integration</h5>
+          <p class="card-text">Seamlessly integrated multiple APIs to streamline communications between various services.</p>
+          <a href="#" class="btn btn-secondary">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

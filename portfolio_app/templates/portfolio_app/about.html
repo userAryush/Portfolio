@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+About Me
+{% endblock %}
+
+{% block content %}
+
+<h2 class="text-center my-5">About me</h2>
+<!-- Hero Section -->
+<div class="container my-5">
+  <div class="row align-items-center">
+    <div class="col-md-4 text-center mb-4 mb-md-0">
+      <img src="{% static 'images/aryush.jpg' %}" class="rounded-circle img-fluid shadow" alt="Profile Photo" style="max-width: 200px;">
+    </div>
+    <div class="col-md-8">
+      <h1 class="display-5 fw-bold">Hi, I'm Aryush Khatri</h1>
+      <p class="lead">A passionate Django Developer based in Nepal.</p>
+      <p>I specialize in backend development with Django, and love creating practical, clean, and fast web applications. My journey started with a passion for solving problems and turned into building websites that make a difference.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="my-5">
+
+<!-- More About Section -->
+<div class="container my-5">
+  <h2 class="mb-4">More About Me</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <h5>Background</h5>
+      <p>I am currently a Computer Science student with a keen interest in web development. I love learning new technologies and working on real-world projects to sharpen my skills.</p>
+
+      <h5>Hobbies</h5>
+      <ul>
+        <li>Building side projects</li>
+        <li>Learning new programming frameworks</li>
+        <li>Watching tech YouTube channels</li>
+      </ul>
+    </div>
+
+    <div class="col-md-6">
+      <h5>Skills</h5>
+      <div class="d-flex flex-wrap gap-2">
+  <span class="badge rounded-pill bg-success p-2 px-3"><i class="fab fa-python"></i> Django</span>
+  <span class="badge rounded-pill bg-danger p-2 px-3"><i class="fab fa-python"></i> Python</span>
+  <span class="badge rounded-pill bg-warning text-dark p-2 px-3"><i class="fab fa-figma"></i> Figma</span>
+  <span class="badge rounded-pill bg-primary p-2 px-3"><i class="bi bi-filetype-html me-1"></i> HTML</span>
+  <span class="badge rounded-pill bg-info text-dark p-2 px-3"><i class="bi bi-filetype-css me-1"></i> CSS</span>
+  <span class="badge rounded-pill bg-warning p-2 px-3"><i class="bi bi-filetype-js me-1"></i> JavaScript</span>
+  <span class="badge rounded-pill bg-dark p-2 px-3"><i class="bi bi-bootstrap-fill me-1"></i> Bootstrap</span>
+  <span class="badge rounded-pill bg-secondary p-2 px-3"><i class="bi bi-database-fill-gear me-1"></i> MySQL</span>
+</div>
+    </div>
+  </div>
+</div>
+
+<hr class="my-5">
+
+<!-- Contact Call-to-Action -->
+<div class="container text-center my-5">
+  <h3>Want to work with me?</h3>
+  <p class="lead">Feel free to <a href="{% url 'contact' %}" class="text-decoration-none fw-bold">get in touch</a> for collaborations or project discussions.</p>
+</div>
+
+{% endblock %}
