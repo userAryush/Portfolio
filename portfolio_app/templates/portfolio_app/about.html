@@ -10,7 +10,7 @@ About Me
 <h2 class="text-center my-5">About Me</h2>
 
 <!-- Redesigned Hero Section -->
-<section class="bg-light py-5">
+<section class="bg-dark py-5">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-md-5 text-center mb-4 mb-md-0">
@@ -18,9 +18,9 @@ About Me
       </div>
       <div class="col-md-7">
         <h1 class="display-4 fw-bold mb-3">👋 Hi, I'm Aryush Khatri</h1>
-        <p class="lead mb-3">🚀 Passionate Django Developer based in Nepal</p>
+        <p class="lead mb-3 text-info text-center">      Passionate Django Developer based in Nepal</p>
         <p>I specialize in backend development using Django and have a strong focus on creating efficient, user-friendly, and scalable web applications. My love for solving problems and building tools that matter drives my continuous learning journey.</p>
-        <a href="{% url 'contact' %}" class="btn btn-primary mt-3 px-4 py-2">Let's Connect</a>
+        <a href="{% url 'contact' %}" class="btn btn-info mt-3 px-4 py-2">Let's Connect</a>
         
 
       </div>
@@ -69,28 +69,53 @@ About Me
 
 <div class="container my-5">
   <h2 class="mb-4">Academic Qualifications</h2>
-  <table class="table table-secondary table-hover table-striped-columns">
+  <table class="table table-dark table-hover table-striped-columns">
     <thead>
       <tr>
         <th scope="col">Institute</th>
         <th scope="col">Year</th>
         <th scope="col">Degree</th>
         <th scope="col">GPA</th>
+        <th scope="col">Certificate</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>@fat</td>
-      </tr>
+      {% for academic in academics  %}
+        <tr>
+          <td>{{academic.institute}}</td>
+          <td>{{academic.year}}</td>
+          <td>{{academic.title}}</td>
+          {% if academic.gpa %}
+          <td>{{academic.gpa}}</td>
+          {% else %}
+          <td>Insert your GPA or atleast update this field with running if youre still studying here.</td>
+          {% endif %}
+          {% if academic.certificate %}
+        <td><button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#certModal{{ academic.id }}">
+          View Certificate
+        </button>
+        </td>
+
+        <!-- Modal -->
+        <div class="modal fade" id="certModal{{ academic.id }}" tabindex="-1" aria-labelledby="certModalLabel{{ academic.id }}" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark text-light">
+              <div class="modal-header">
+                <h5 class="modal-title" id="certModalLabel{{ academic.id }}">{{ academic.title }} Certificate</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center">
+                <img src="{{ academic.certificate.url }}" alt="Certificate Image" class="img-fluid rounded shadow">
+              </div>
+            </div>
+          </div>
+        </div>
+        {% else %}
+        <td><span class="text-warning">No certificate yet</span></td>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
     </tbody>
   </table>
 </div>
@@ -99,13 +124,39 @@ About Me
 <!-- Certifications Section -->
 <div class="container my-5">
   <h2 class="mb-4">Certifications</h2>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Python for Everybody – Coursera</li>
-    <li class="list-group-item">Django for Beginners – Udemy</li>
-    <li class="list-group-item">Frontend Web Development – freeCodeCamp</li>
-    <!-- Add more if needed -->
+  <ul class="list-group-dark list-group-flush">
+    {% for certification in certifications %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          {{ certification.title }} – {{ certification.institute }} [{{ certification.year }}]
+        </div>
+        {% if certification.certificate %}
+          <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#certModal{{ certification.id }}">
+            View Certificate
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="certModal{{ certification.id }}" tabindex="-1" aria-labelledby="certModalLabel{{ certification.id }}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content bg-dark text-light">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="certModalLabel{{ certification.id }}">{{ certification.title }} Certificate</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                  <img src="{{ certification.certificate.url }}" alt="Certificate Image" class="img-fluid rounded shadow">
+                </div>
+              </div>
+            </div>
+          </div>
+        {% else %}
+          <span class="text-warning">No certificate</span>
+        {% endif %}
+      </li>
+    {% endfor %}
   </ul>
 </div>
+
 
 <hr class="my-5">
 

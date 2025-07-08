@@ -6,151 +6,48 @@ Projects Page
 {% endblock %}
 
 {% block content %}
+<div class="container bg-dark text-light py-5">
+  <h2 class="text-center mb-5 text-info">My Projects</h2>
+  <div class="row gx-5 gy-4">
 
-<h2 class="text-center my-5">My Projects</h2>
-
-<div class="container">
-  
-  <!-- Django Projects Section -->
-  <section class="mb-5">
-    <h3 class="mb-4 text-decoration-underline">Django Projects</h3>
-    <div class="row gx-5 gy-4">
-      
-      <!-- Django Project Card 1 -->
-      <div class="col-md-6 col-lg-6">
-        <div class="card border-dark shadow-sm h-100" style="min-height: 520px;">
-          <div class="card-header bg-dark text-white fs-5 py-2">
-            Django
-          </div>
-          <div class="card-body p-3 d-flex flex-column">
-            <h5 class="card-title mb-2">TechNepal</h5>
-            <p class="card-text small">
-              A sleek and responsive portfolio built using Django and Bootstrap, showcasing my projects, tech stack, and design skills.
-            </p>
-
-            <!-- Tech Stack -->
-            <div class="mb-2">
-              <span class="badge bg-primary me-1">HTML</span>
-              <span class="badge bg-warning text-dark me-1">JavaScript</span>
-              <span class="badge bg-success me-1">Django</span>
-              <span class="badge bg-danger me-1">Figma</span>
-            </div>
-
-            <!-- Video -->
-            <div class="mb-2">
-              <video class="w-100 rounded" controls muted style="max-height: 200px;">
-                <source src="{% static 'videos/technepal.mp4' %}" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="mt-auto d-flex justify-content-between">
-              <a href="https://github.com/userAryush/Django_TechNepal-" target="_blank" class="btn btn-outline-dark btn-sm">GitHub</a>
-              <a href="https://your-live-site.com" target="_blank" class="btn btn-dark btn-sm">Live Demo</a>
-            </div>
-          </div>
+    {% for project in projects %}
+    <div class="col-md-6 col-lg-6">
+      <div class="card bg-dark border border-light text-light shadow-sm h-100" style="min-height: 520px;">
+        <div class="card-header bg-black text-secondary fs-5 py-2 border-bottom border-light">
+          {{ project.get_project_type_display }}
         </div>
-      </div>
-      <!-- Django Project Card 1 -->
-      <div class="col-md-6 col-lg-6">
-        <div class="card border-dark shadow-sm h-100" style="min-height: 520px;">
-          <div class="card-header bg-dark text-white fs-5 py-2">
-            Django
+        <div class="card-body p-3 d-flex flex-column">
+          <h5 class="card-title mb-2">{{ project.title }}</h5>
+          <p class="card-text small">{{ project.description }}</p>
+
+          <div class="mb-2">
+            {% for tech in project.tech_stack %}
+            <span class="badge bg-secondary me-1">{{ tech }}</span>
+            {% endfor %}
           </div>
-          <div class="card-body p-3 d-flex flex-column">
-            <h5 class="card-title mb-2">TechNepal</h5>
-            <p class="card-text small">
-              A sleek and responsive portfolio built using Django and Bootstrap, showcasing my projects, tech stack, and design skills.
-            </p>
 
-            <!-- Tech Stack -->
-            <div class="mb-2">
-              <span class="badge bg-primary me-1">HTML</span>
-              <span class="badge bg-warning text-dark me-1">JavaScript</span>
-              <span class="badge bg-success me-1">Django</span>
-              <span class="badge bg-danger me-1">Figma</span>
-            </div>
-
-            <!-- Video -->
-            <div class="mb-2">
-              <video class="w-100 rounded" controls muted style="max-height: 200px;">
-                <source src="{% static 'videos/technepal.mp4' %}" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="mt-auto d-flex justify-content-between">
-              <a href="https://github.com/userAryush/Django_TechNepal-" target="_blank" class="btn btn-outline-dark btn-sm">GitHub</a>
-              <a href="https://your-live-site.com" target="_blank" class="btn btn-dark btn-sm">Live Demo</a>
-            </div>
+          {% if project.vedio %}
+          <div class="mb-2">
+            <video class="w-100 rounded" controls muted style="max-height: 200px;">
+              <source src="{% static project.vedio.name|cut:'static/' %}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
-        </div>
-      </div>
+          {% endif %}
 
-      <!-- Duplicate Django Project Card -->
-      <div class="col-md-6 col-lg-6">
-        <!-- Copy the card HTML above -->
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Python Projects Section -->
-  <section class="mb-5">
-    <h3 class="mb-4 text-decoration-underline">Python Projects</h3>
-    <div class="row gx-5 gy-4">
-      <!-- Add Python project cards here using same card layout -->
-      <div class="col-md-6 col-lg-6">
-        <div class="card border-dark shadow-sm h-100" style="min-height: 420px;">
-          <div class="card-header bg-dark text-white fs-5 py-2">Python</div>
-          <div class="card-body p-3 d-flex flex-column">
-            <h5 class="card-title mb-2">My Python App</h5>
-            <p class="card-text small">This app uses Python and Flask to do X, Y, Z.</p>
-
-            <div class="mb-2">
-              <span class="badge bg-secondary me-1">Python</span>
-              <span class="badge bg-info text-dark me-1">Flask</span>
-            </div>
-
-            <div class="mt-auto d-flex justify-content-between">
-              <a href="#" class="btn btn-outline-dark btn-sm">GitHub</a>
-              <a href="#" class="btn btn-dark btn-sm">Live Demo</a>
-            </div>
+          <div class="mt-auto d-flex justify-content-between">
+            {% if project.github_link %}
+            <a href="{{ project.github_link }}" target="_blank" class="btn btn-outline-light btn-sm">GitHub</a>
+            {% endif %}
+            {% if project.project_link %}
+            <a href="{{ project.project_link }}" target="_blank" class="btn btn-light btn-sm">Live Demo</a>
+            {% endif %}
           </div>
         </div>
       </div>
     </div>
-  </section>
+    {% endfor %}
 
-  <!-- Figma Projects Section -->
-  <section class="mb-5">
-    <h3 class="mb-4 text-decoration-underline">Figma Projects</h3>
-    <div class="row gx-5 gy-4">
-      <!-- Add Figma project cards here -->
-      <div class="col-md-6 col-lg-6">
-        <div class="card border-dark shadow-sm h-100" style="min-height: 420px;">
-          <div class="card-header bg-dark text-white fs-5 py-2">Figma</div>
-          <div class="card-body p-3 d-flex flex-column">
-            <h5 class="card-title mb-2">UI Mockup</h5>
-            <p class="card-text small">A complete Figma design for an eCommerce mobile app.</p>
-
-            <div class="mb-2">
-              <span class="badge bg-danger me-1">Figma</span>
-              <span class="badge bg-primary me-1">UI/UX</span>
-            </div>
-
-            <div class="mt-auto d-flex justify-content-between">
-              <a href="#" class="btn btn-outline-dark btn-sm">Figma Link</a>
-              <a href="#" class="btn btn-dark btn-sm">Preview</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  </div>
 </div>
-
 {% endblock %}
