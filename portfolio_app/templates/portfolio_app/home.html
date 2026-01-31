@@ -1,108 +1,156 @@
-{% extends "layout.html" %}
-{% load static %}
-
-{% block title %}
-Home Page
-{% endblock %}
-
-{% block content %}
+{% extends "layout.html" %} {% load static %} {% block title %} Home Page
+{%endblock %} {% block content %}
 
 <!-- Introductory Alert -->
-<div class="alert alert-info alert-dismissible fade show mt-3 shadow-sm" role="alert">
-  <strong>Hello Visitor!</strong> I am looking for an Fresher Job in Django. Feel free to contact me! Note:The website is still in development.
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<div
+  class="alert alert-info alert-dismissible fade show mt-3 shadow-sm"
+  role="alert"
+>
+  <strong>Hello Visitor!</strong> I am looking for an Fresher Job in Django.
+  Feel free to contact me! Note:The website is still in development.
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
 </div>
 
 <!-- Hero Section -->
 <!-- Hero Section -->
-<div class="container min-vh-100 d-flex align-items-center justify-content-center text-center">
+<div
+  class="container min-vh-100 d-flex align-items-center justify-content-center text-center"
+>
   <div class="row justify-content-center align-items-center w-100">
     <div class="col-md-8">
-      
       <!-- Title -->
       <h2 class="display-4 fw-bold">
         Hello, I'm <span class="text-info">Aryush Khatri</span>
       </h2>
-      
+
       <!-- Subtext -->
       <p class="lead mt-2">
         Django Developer • Backend Enthusiast • Based in Nepal
       </p>
-      
+
       <!-- Buttons -->
       <div class="mt-4">
-        <a href="#projects" class="btn btn-outline-info btn-lg me-2">Resume</a>
-        <a href="#projects" class="btn btn-info btn-lg">Projects</a>
+        <a
+          href="https://drive.google.com/file/d/16bgGIDdnfJqcwOEjUEKLlwcpYdi4zxuA/view?usp=drive_link "
+          class="btn btn-outline-info btn-lg me-2"
+          >Resume</a
+        >
+        <a href="{% url 'projects' %}" class="btn btn-info btn-lg">Projects</a>
       </div>
 
       <!-- Social Icons -->
       <div class="d-flex justify-content-center gap-3 mt-4">
-        <a href="https://github.com/userAryush" target="_blank" class="fs-3 text-light" title="GitHub">
+        <a
+          href="https://github.com/userAryush"
+          target="_blank"
+          class="fs-3 text-light"
+          title="GitHub"
+        >
           <i class="bi bi-github"></i>
         </a>
-        <a href="https://www.linkedin.com/in/aryush-khatri-652439317/" target="_blank" class="fs-3 text-light" title="LinkedIn">
+        <a
+          href="https://www.linkedin.com/in/aryush-khatri-652439317/"
+          target="_blank"
+          class="fs-3 text-light"
+          title="LinkedIn"
+        >
           <i class="bi bi-linkedin"></i>
         </a>
-        <a href="https://www.instagram.com/" target="_blank" class="fs-3 text-light" title="Instagram">
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          class="fs-3 text-light"
+          title="Instagram"
+        >
           <i class="bi bi-instagram"></i>
         </a>
       </div>
-      
     </div>
 
-
     <div class="col-md-4 mb-4">
-      <img src="{% static 'images/aryushimg.jpg' %}" class="rounded-circle img-fluid shadow border border-3 border-info" alt="Profile Photo" style="max-width: 400px;">
+      <img
+        src="{% static 'images/aryushimg.jpg' %}"
+        class="rounded-circle img-fluid shadow border border-3 border-info"
+        alt="Profile Photo"
+        style="max-width: 400px"
+      />
     </div>
   </div>
 </div>
-
 
 <!-- Skills Section -->
 <div class="bg-dark py-5">
   <div class="container">
     <h2 class="text-center fw-semibold mb-4 text-light">Skills & Tools</h2>
     <div class="d-flex flex-wrap justify-content-center gap-3">
-      <span class="badge rounded-pill bg-secondary px-4 py-2"><i class="bi bi-code-slash me-1"></i> Django</span>
-      <span class="badge rounded-pill bg-secondary px-4 py-2"><i class="fab fa-python me-1"></i> Python</span>
-      <span class="badge rounded-pill bg-secondary px-4 py-2"><i class="fab fa-figma"></i> Figma</span>
-      <span class="badge rounded-pill bg-secondary px-4 py-2"><i class="bi bi-filetype-html me-1"></i> HTML</span>
-      <span class="badge rounded-pill bg-secondary px-4 py-2"><i class="bi bi-filetype-css me-1"></i> CSS</span>
-      <span class="badge rounded-pill bg-secondary px-4 py-2"><i class="bi bi-filetype-js me-1"></i> JavaScript</span>
-      <span class="badge rounded-pill bg-secondary px-4 py-2"><i class="bi bi-bootstrap me-1"></i> Bootstrap</span>
-      <span class="badge rounded-pill bg-secondary px-4 py-2"><i class="bi bi-hdd-network me-1"></i> MySQL</span>
+      <span class="badge rounded-pill bg-secondary px-4 py-2"
+        ><i class="bi bi-code-slash me-1"></i> Django</span
+      >
+      <span class="badge rounded-pill bg-secondary px-4 py-2"
+        ><i class="fab fa-python me-1"></i> Python</span
+      >
+      <span class="badge rounded-pill bg-secondary px-4 py-2"
+        ><i class="fab fa-figma"></i> Figma</span
+      >
+      <span class="badge rounded-pill bg-secondary px-4 py-2"
+        ><i class="bi bi-filetype-html me-1"></i> HTML</span
+      >
+      <span class="badge rounded-pill bg-secondary px-4 py-2"
+        ><i class="bi bi-filetype-css me-1"></i> CSS</span
+      >
+      <span class="badge rounded-pill bg-secondary px-4 py-2"
+        ><i class="bi bi-filetype-js me-1"></i> JavaScript</span
+      >
+      <span class="badge rounded-pill bg-secondary px-4 py-2"
+        ><i class="bi bi-bootstrap me-1"></i> Bootstrap</span
+      >
+      <span class="badge rounded-pill bg-secondary px-4 py-2"
+        ><i class="bi bi-hdd-network me-1"></i> MySQL</span
+      >
     </div>
   </div>
 
+  <!-- Projects Highlights -->
+  <h2 class="text-center mt-5 my-5 text-light">Recent Projects</h2>
+  <div class="container my-4">
+    <div class="row g-3">
+      <!-- Project Card 1 -->
+      {% for project in projects %}
+      <div class="col-md-3">
+        <div
+          class="card bg-dark border border-light text-light h-100 shadow-sm"
+        >
+          <div
+            class="card-header bg-transparent border-bottom border-light text-info fw-semibold"
+          >
+            {{ project.get_project_type_display }}
+          </div>
 
-<!-- Projects Highlights -->
-<h2 class="text-center mt-5 my-5 text-light">Recent Projects</h2>
-<div class="container my-4">
-  <div class="row g-3">
-    <!-- Project Card 1 -->
-     {% for project in projects  %}
-<div class="col-md-3">
-  <div class="card bg-dark border border-light text-light h-100 shadow-sm">
-    <div class="card-header bg-transparent border-bottom border-light text-info fw-semibold">
-      {{ project.get_project_type_display }}
-    </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ project.title }}</h5>
 
-    <div class="card-body d-flex flex-column">
-      <h5 class="card-title">{{ project.title }}</h5>
+            <p class="truncate-description">{{ project.description }}</p>
 
-      <p class="truncate-description">{{ project.description }}</p>
-
-      <div class="mt-auto d-flex justify-content-between">
-        <a href="#" class="btn btn-outline-light btn-sm">View Details</a>
-        <a href="https://github.com/userAryush/Django_TechNepal-" target="_blank" class="btn btn-outline-info btn-sm">GitHub</a>
+            <div class="mt-auto d-flex justify-content-between">
+              <a href="#" class="btn btn-outline-light btn-sm">View Details</a>
+              <a
+                href="https://github.com/userAryush/Django_TechNepal-"
+                target="_blank"
+                class="btn btn-outline-info btn-sm"
+                >GitHub</a
+              >
+            </div>
+          </div>
+        </div>
       </div>
+
+      {% endfor %}
     </div>
   </div>
-</div>
-
-    {% endfor %}
-    
-  </div>
-</div>
 </div>
 {% endblock %}
