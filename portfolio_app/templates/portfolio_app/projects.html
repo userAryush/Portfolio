@@ -89,26 +89,8 @@ Projects - Developer Aryush
         {% for project in projects %}
         <div class="col-xl-4 col-md-6">
           <div
-            class="card glass-card border-0 rounded-4 overflow-hidden h-100 d-flex flex-column shadow-sm transition-hover">
-            <!-- 16:9 Visual Area -->
-            {% comment %} <div class="ratio ratio-16x9 bg-black border-bottom border-light border-opacity-10 position-relative">
-              {% if project.vedio %}
-              <video class="object-fit-cover w-100 h-100" controls muted loop>
-                <source src="{% static project.vedio.name|cut:'static/' %}" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-              {% else %}
-              <div class="d-flex align-items-center justify-content-center h-100 text-secondary">
-                <i class="bi bi-code-slash fs-1"></i>
-              </div>
-              {% endif %}
+            class="card glass-card border-2 rounded-4 overflow-hidden h-100 d-flex flex-column shadow-sm transition-hover">
 
-              <div class="position-absolute top-0 start-0 m-3">
-                <span class="badge bg-dark bg-opacity-75 border border-secondary text-info rounded-pill shadow-sm">
-                  {{ project.get_project_type_display }}
-                </span>
-              </div>
-            </div> {% endcomment %}
 
             <div class="card-body p-4 d-flex flex-column flex-grow-1">
               <h3 class="card-title fw-bold text-light mb-2 h5">{{ project.title }}</h3>
