@@ -29,7 +29,8 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '0273-45-64-163-10.ngrok-free.app', 
-    'aryush-portfolio.onrender.com', '127.0.0.1'
+    'portfolio-aryush.onrender.com',
+    '127.0.0.1'
 ]
 
 
