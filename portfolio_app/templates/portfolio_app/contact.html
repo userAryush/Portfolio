@@ -1,44 +1,100 @@
 {% extends "layout.html" %}
-
-
-{% block title %}
-Contact Page
-{% endblock  %}
+{% block title %}Contact - Developer Aryush{% endblock %}
 
 {% block content %}
+<div class="container py-5 min-vh-100 d-flex align-items-center">
+    <div class="row w-100 g-5 align-items-center">
+        <!-- Left Side: Information -->
+        <div class="col-lg-5 text-light">
+            <h1 class="display-4 fw-bold mb-4">Let's build something <span class="text-info">amazing</span> together.
+            </h1>
+            <p class="lead text-secondary mb-5">
+                Have a project in mind? I'm currently looking for new opportunities in Django development.
+            </p>
 
+            <div class="d-flex align-items-center gap-3 mb-5">
+                <span class="status-indicator"></span>
+                <span class="text-success fw-semibold">Available for hire</span>
+            </div>
 
-<div class="container">
-{% comment %} for centering text {% endcomment %}
-    <h2 class="text-center my-5"> 
-        Contact me
-    </h2>
+            <div class="d-flex flex-column gap-4">
+                <a href="mailto:aryush.khatri@example.com"
+                    class="d-flex align-items-center gap-3 text-decoration-none text-light p-3 rounded-4 glass-card">
+                    <div class="bg-info bg-opacity-10 p-3 rounded-circle text-info">
+                        <i class="bi bi-envelope-fill fs-4"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0 fw-bold">Email Me</h6>
+                        <small class="text-secondary">aryush.khatri@example.com</small>
+                    </div>
+                </a>
 
+                <a href="https://github.com/userAryush" target="_blank"
+                    class="d-flex align-items-center gap-3 text-decoration-none text-light p-3 rounded-4 glass-card">
+                    <div class="bg-dark p-3 rounded-circle text-white border border-secondary">
+                        <i class="bi bi-github fs-4"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0 fw-bold">GitHub</h6>
+                        <small class="text-secondary">Check out my code</small>
+                    </div>
+                </a>
 
-    <form method="post">
-        {% csrf_token %}
-        <div class="form-floating mb-3 text-dark">
-            <input type="text" class="form-control" id="floatingname" name="name" placeholder="Enter your name" required>
-            <label for="floatingname">Name</label>
+                <a href="https://www.linkedin.com/in/aryush-khatri-652439317/" target="_blank"
+                    class="d-flex align-items-center gap-3 text-decoration-none text-light p-3 rounded-4 glass-card">
+                    <div class="bg-primary bg-opacity-10 p-3 rounded-circle text-primary">
+                        <i class="bi bi-linkedin fs-4"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0 fw-bold">LinkedIn</h6>
+                        <small class="text-secondary">Let's connect</small>
+                    </div>
+                </a>
+            </div>
         </div>
 
-        <div class="form-floating mb-3 text-dark">
-            <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com" required>
-            <label for="floatingInput">Email address</label>
+        <!-- Right Side: Form -->
+        <div class="col-lg-7">
+            <div class="card glass-card border-0 p-4 p-md-5 rounded-4">
+                <h3 class="fw-bold text-light mb-4">Send a Message</h3>
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <div class="form-floating text-dark">
+                                <input type="text" class="form-control bg-light border-0" id="floatingname" name="name"
+                                    placeholder="Name" required>
+                                <label for="floatingname">Your Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating text-dark">
+                                <input type="email" class="form-control bg-light border-0" id="floatingInput"
+                                    name="email" placeholder="Email" required>
+                                <label for="floatingInput">Your Email</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-floating text-dark mb-3">
+                        <input type="tel" class="form-control bg-light border-0" id="floatingphone" name="phone"
+                            placeholder="Phone">
+                        <label for="floatingphone">Phone Number (Optional)</label>
+                    </div>
+
+                    <div class="form-floating text-dark mb-4">
+                        <textarea class="form-control bg-light border-0" placeholder="Message" name="message"
+                            id="floatingTextarea" style="height: 150px" required></textarea>
+                        <label for="floatingTextarea">Send a message    ...</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-info btn-lg w-100 rounded-pill fw-bold text-dark shadow-lg">
+                        Send Message <i class="bi bi-send-fill ms-2"></i>
+                    </button>
+                </form>
+            </div>
         </div>
-
-        <div class="form-floating mb-3 text-dark">
-            <input type="tel" class="form-control" id="floatingphone" name="phone" placeholder="Enter your phone number">
-            <label for="floatingphone">Phone number</label>
-        </div>
-
-        <div class="form-floating text-dark">
-            <textarea class="form-control" placeholder="Leave a message here" name="message" id="floatingTextarea" required></textarea>
-            <label for="floatingTextarea">Message</label>
-        </div>
-
-
-        <button type="submit" class="btn btn-success my-5">Submit</button>
-    </form>
+    </div>
 </div>
-{% endblock  %}
+{% endblock %}

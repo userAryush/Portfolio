@@ -1,0 +1,162 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+{{ project.title }} - Case Study
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="container pt-5 pb-4">
+    <!-- Back Link -->
+    <a href="{% url 'projects' %}" class="btn btn-sm btn-outline-secondary rounded-pill mb-4 border-0">
+        <i class="bi bi-arrow-left me-1"></i> Projects
+    </a>
+
+    <div class="row align-items-center">
+        <div class="col-lg-8">
+            <h1 class="display-4 fw-bold text-light mb-3">{{ project.title }}</h1>
+            <p class="lead text-secondary mb-4">{{ project.description}}</p>
+
+            <div class="d-flex gap-3">
+                {% if project.project_link %}
+                <a href="{{ project.project_link }}" target="_blank"
+                    class="btn btn-info rounded-pill px-4 fw-bold text-dark">
+                    Live Demo <i class="bi bi-box-arrow-up-right ms-2"></i>
+                </a>
+                {% endif %}
+
+                {% if project.github_link %}
+                <a href="{{ project.github_link }}" target="_blank" class="btn btn-outline-light rounded-pill px-4">
+                    <i class="bi bi-github me-2"></i> GitHub
+                </a>
+                {% endif %}
+
+                {% if project.figma_link %}
+                <a href="{{ project.figma_link }}" target="_blank" class="btn btn-outline-light rounded-pill px-4">
+                    <i class="fab fa-figma me-2"></i> Figma
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Media Gallery (Video) -->
+<div class="container mb-5">
+    <div
+        class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg border border-secondary border-opacity-25 bg-black">
+        {% if project.vedio %}
+        <video class="object-fit-cover w-100 h-100" controls autoplay muted loop>
+            <source src="{% static project.vedio.name|cut:'static/' %}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        {% else %}
+        <div class="d-flex align-items-center justify-content-center text-secondary h-100">
+            <i class="bi bi-play-circle fs-1 opacity-50"></i>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- The Brief -->
+<div class="container py-4">
+    <div class="row g-5">
+        <!-- Main Column -->
+        <div class="col-lg-8">
+
+            <!-- Problem & Solution Cards -->
+            <div class="row g-4 mb-5">
+                <!-- Problem (Red) -->
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 rounded-4"
+                        style="background: rgba(220, 53, 69, 0.15); backdrop-filter: blur(10px);">
+                        <div class="card-body p-4">
+                            <h4 class="fw-bold text-danger mb-3">
+                                <i class="bi bi-exclamation-circle-fill me-2"></i> The Problem
+                            </h4>
+                            <p class="text-light opacity-75">
+                                {{ project.problem_statement }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solution (Green) -->
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 rounded-4"
+                        style="background: rgba(25, 135, 84, 0.15); backdrop-filter: blur(10px);">
+                        <div class="card-body p-4">
+                            <h4 class="fw-bold text-success mb-3">
+                                <i class="bi bi-check-circle-fill me-2"></i> The Solution
+                            </h4>
+                            <p class="text-light opacity-75">
+                                {{ project.solution_statement }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack (Below Cards) -->
+            <div class="mb-5">
+                <h5
+                    class="fw-bold text-light mb-3 border-bottom border-secondary border-opacity-25 pb-2 d-inline-block">
+                    Technologies Used</h5>
+                <div class="d-flex flex-wrap gap-2">
+                    {% for tech in project.tech_stack %}
+                    <span
+                        class="badge rounded-pill px-3 py-2 bg-dark border border-secondary border-opacity-50 text-light badge-{{ tech }}">
+                        {{ tech }}
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Technical Breakdown -->
+            <div class="mb-5">
+                <h3 class="fw-bold text-light mb-4">Technical Breakdown</h3>
+                <div class="text-secondary lead fs-6" style="white-space: pre-line; line-height: 1.8;">
+                    {{ project.technical_breakdown }}
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Sidebar (Metadata) -->
+        <div class="col-lg-4">
+            <div class="sticky-top" style="top: 100px;">
+                <div class="glass-card rounded-4 p-4 border border-secondary border-opacity-10">
+                    <h5 class="fw-bold text-light mb-4 text-uppercase small ls-1">Project Metadata</h5>
+
+                    <ul class="list-group list-group-flush bg-transparent">
+                        <li class="list-group-item bg-transparent text-secondary px-0 d-flex justify-content-between">
+                            <span>Category</span>
+                            <span class="text-info">{{ project.get_project_type_display }}</span>
+                        </li>
+                        <li class="list-group-item bg-transparent text-secondary px-0 d-flex justify-content-between">
+                            <span>Date</span>
+                            <span class="text-light">{{ project.created_at|date:"F Y" }}</span>
+                        </li>
+                        <li class="list-group-item bg-transparent text-secondary px-0 d-flex justify-content-between">
+                            <span>Development Status</span>
+                            <span class="badge rounded-pill {% if project.status == 'Live' %}bg-success text-dark{% else %}border border-info text-info{% endif %}">
+        {{ project.get_status_display }}
+    </span>
+                        </li>
+                    </ul>
+
+                    <hr class="border-secondary opacity-25 my-4">
+
+                            <div class="d-grid">
+                                <a href="{% url 'contact' %}?project={{ project.title }}"
+                                    class="btn btn-outline-info rounded-pill fw-bold">
+                                    Inquire about this project
+                                </a>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

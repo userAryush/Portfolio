@@ -136,4 +136,17 @@ STATICFILES_DIRS = [
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_HOST = 'smtp.gmail.com' 
+
+# 2. Use port 587 for TLS
+EMAIL_PORT = 587
+
+# 3. Ensure TLS is True
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'khatriaryush@gmail.com'  # SMTP server username
+DEFAULT_FROM_EMAIL = 'khatriaryush@gmail.com'
+EMAIL_HOST_PASSWORD = 'oflf hfvh hqfz mieq'  # SMTP server password
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
