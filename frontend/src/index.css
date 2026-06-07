@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light mode (default) - used when .dark is NOT on <html> */
+:root {
+  --gh-bg: 250 250 248;
+  --gh-surface: 255 255 255;
+  --gh-border: 209 217 224;
+  --gh-accent: 88 166 255;
+  --gh-success: 26 127 55;
+  --gh-danger: 207 34 46;
+  --gh-text: 31 35 40;
+  --gh-muted: 101 109 118;
+}
+
+/* Dark mode - used when .dark IS on <html> */
+.dark {
+  --gh-bg: 13 17 23;
+  --gh-surface: 22 27 34;
+  --gh-border: 33 38 45;
+  --gh-accent: 88 166 255;
+  --gh-success: 63 185 80;
+  --gh-danger: 248 81 73;
+  --gh-text: 230 237 243;
+  --gh-muted: 139 148 158;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: rgb(var(--gh-bg));
+  color: rgb(var(--gh-text));
+  font-family: 'DM Sans', sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+::selection {
+  background: rgb(var(--gh-accent) / 0.2);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--gh-bg));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--gh-border));
+  border-radius: 9999px;
+}
+
+/*
+  Light-mode overrides.
+  Selectors like `html:not(.dark) .bg-gh-bg` have higher specificity
+  than Tailwind's compiled `.bg-gh-bg`, so they win immediately —
+  no dev-server restart or CSS rebuild required.
+*/
+
+/* Backgrounds */
+html:not(.dark) .bg-gh-bg          { background-color: #FAFAF8; }
+html:not(.dark) .bg-gh-bg\/80      { background-color: rgba(250,250,248,.8); }
+html:not(.dark) .bg-gh-bg\/70      { background-color: rgba(250,250,248,.7); }
+html:not(.dark) .bg-gh-surface     { background-color: #ffffff; }
+html:not(.dark) .bg-gh-accent      { background-color: #58a6ff; }
+html:not(.dark) .bg-gh-accent\/20  { background-color: rgba(88,166,255,.2); }
+html:not(.dark) .bg-gh-success     { background-color: #1a7f37; }
+html:not(.dark) .bg-gh-success\/15 { background-color: rgba(26,127,55,.15); }
+html:not(.dark) .bg-gh-border      { background-color: #d1d9e0; }
+html:not(.dark) .bg-gh-border\/60  { background-color: rgba(209,217,224,.6); }
+
+/* Text */
+html:not(.dark) .text-gh-text    { color: #1f2328; }
+html:not(.dark) .text-gh-muted   { color: #656d76; }
+html:not(.dark) .text-gh-accent  { color: #58a6ff; }
+html:not(.dark) .text-gh-success { color: #1a7f37; }
+html:not(.dark) .text-gh-danger  { color: #cf222e; }
+html:not(.dark) .text-gh-bg      { color: #ffffff; }
+
+/* Borders */
+html:not(.dark) .border-gh-border       { border-color: #d1d9e0; }
+html:not(.dark) .border-gh-success\/30  { border-color: rgba(26,127,55,.3); }
+
+/* Hover states */
+html:not(.dark) .hover\:text-gh-text:hover          { color: #1f2328; }
+html:not(.dark) .hover\:border-gh-accent:hover      { border-color: #58a6ff; }
+html:not(.dark) .hover\:border-gh-accent\/40:hover  { border-color: rgba(88,166,255,.4); }
+html:not(.dark) .hover\:border-gh-muted:hover       { border-color: #656d76; }
+html:not(.dark) .hover\:text-gh-accent:hover        { color: #58a6ff; }
+
+/* Focus states */
+html:not(.dark) .focus\:border-gh-accent:focus { border-color: #58a6ff; }
+
+/* Ring (profile image) */
+html:not(.dark) .ring-gh-accent\/40 { --tw-ring-color: rgba(88,166,255,.4); }
+
+/* Card hover shadow colour */
+html:not(.dark) .hover\:shadow-gh-accent\/10:hover { --tw-shadow-color: rgba(88,166,255,.1); }
+
+/* Tech stack badges (dark: variant approach doesn't work without a rebuild) */
+html:not(.dark) .border-\[\#1f3a5f\] { border-color: #bfdbfe; }
+html:not(.dark) .bg-\[\#0c1e3a\]     { background-color: #eff6ff; }
