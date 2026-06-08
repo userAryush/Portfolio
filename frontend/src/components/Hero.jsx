@@ -34,7 +34,7 @@ export default function Hero() {
   return (
     <div className="mx-auto flex min-h-[calc(100vh-72px)] w-full max-w-6xl items-center justify-between gap-12 px-6 py-16 flex-col-reverse md:flex-row">
       {/* Text content */}
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col items-center text-center md:items-start md:text-left">
         <span className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-gh-success/30 bg-gh-surface px-3 py-1 text-xs text-gh-success animate-fadeIn">
           <span className="h-2 w-2 animate-pulse rounded-full bg-gh-success" />
           Available for work opportunities
@@ -52,7 +52,7 @@ export default function Hero() {
           I build scalable backend systems and test them thoroughly.
         </p>
 
-        <div className="mt-8 flex flex-wrap gap-3 animate-fadeUp [animation-delay:500ms]">
+        <div className="mt-8 flex flex-wrap justify-center gap-3 animate-fadeUp [animation-delay:500ms] md:justify-start">
           <a
             href="#projects"
             className="rounded-lg bg-gh-accent px-5 py-2 font-medium text-gh-bg transition-transform duration-150 hover:scale-105 hover:bg-blue-400 active:scale-95"
@@ -68,7 +68,7 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="mt-4 flex items-center gap-3 animate-fadeUp [animation-delay:600ms]">
+        <div className="mt-4 flex items-center justify-center gap-3 animate-fadeUp [animation-delay:600ms] md:justify-start">
           {socialLinks.map((link) => (
             <a
               key={link.name}

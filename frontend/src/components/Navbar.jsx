@@ -27,7 +27,7 @@ const socialLinks = [
         <path d="M12 2C6.47 2 2 6.59 2 12.26C2 16.79 4.87 20.62 8.84 21.98C9.34 22.07 9.52 21.76 9.52 21.5C9.52 21.27 9.51 20.5 9.5 19.61C6.73 20.23 6.14 18.25 6.14 18.25C5.68 17.04 5.03 16.72 5.03 16.72C4.12 16.08 5.1 16.09 5.1 16.09C6.1 16.17 6.63 17.14 6.63 17.14C7.53 18.73 8.97 18.27 9.54 18C9.63 17.33 9.89 16.87 10.17 16.61C7.96 16.35 5.64 15.46 5.64 11.47C5.64 10.33 6.03 9.39 6.68 8.65C6.58 8.39 6.23 7.32 6.78 5.88C6.78 5.88 7.62 5.6 9.5 6.91C10.3 6.68 11.15 6.56 12 6.56C12.85 6.56 13.7 6.68 14.5 6.91C16.38 5.6 17.22 5.88 17.22 5.88C17.77 7.32 17.42 8.39 17.32 8.65C17.97 9.39 18.36 10.33 18.36 11.47C18.36 15.47 16.03 16.35 13.81 16.61C14.17 16.94 14.48 17.57 14.48 18.54C14.48 19.93 14.47 21.14 14.47 21.5C14.47 21.76 14.65 22.08 15.16 21.98C19.13 20.62 22 16.79 22 12.26C22 6.59 17.53 2 12 2Z" />
       </svg>
     ),
-  }
+  },
 ]
 
 function SunIcon() {
@@ -54,6 +54,25 @@ function MoonIcon() {
   )
 }
 
+function HamburgerIcon({ isOpen }) {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {isOpen ? (
+        <>
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </>
+      ) : (
+        <>
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </>
+      )}
+    </svg>
+  )
+}
+
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('hero')
   const [isDark, setIsDark] = useState(() => {
@@ -61,6 +80,7 @@ export default function Navbar() {
     if (saved) return saved === 'dark'
     return window.matchMedia('(prefers-color-scheme: dark)').matches
   })
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     const root = document.documentElement
@@ -93,13 +113,18 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const closeMenu = () => setIsMenuOpen(false)
+
   return (
     <nav className="sticky top-0 z-50 animate-fadeIn border-b border-gh-border bg-gh-bg/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#hero" className="text-lg font-semibold text-gh-text">
+        {/* Logo */}
+        <a href="#hero" onClick={closeMenu} className="text-lg font-semibold text-gh-text">
           Aryush <span className="text-gh-accent">.py</span>
         </a>
-        <div className="flex items-center gap-5 text-sm">
+
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-5 text-sm">
           {navItems.map((item) => (
             <a
               key={item.id}
@@ -136,7 +161,63 @@ export default function Navbar() {
             </button>
           </div>
         </div>
+
+        {/* Mobile controls */}
+        <div className="flex items-center gap-1 md:hidden">
+          <button
+            type="button"
+            onClick={() => setIsDark((prev) => !prev)}
+            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            className="flex h-8 w-8 items-center justify-center rounded-md text-gh-muted transition-colors hover:text-gh-text"
+          >
+            {isDark ? <SunIcon /> : <MoonIcon />}
+          </button>
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            className="flex h-8 w-8 items-center justify-center rounded-md text-gh-muted transition-colors hover:text-gh-text"
+          >
+            <HamburgerIcon isOpen={isMenuOpen} />
+          </button>
+        </div>
       </div>
+
+      {/* Mobile dropdown menu */}
+      {isMenuOpen && (
+        <div className="border-t border-gh-border bg-gh-bg/95 backdrop-blur-md md:hidden">
+          <div className="px-4 py-3 flex flex-col">
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={item.href}
+                onClick={closeMenu}
+                className={`rounded-md px-3 py-2.5 text-sm transition-colors ${
+                  activeSection === item.id
+                    ? 'bg-gh-surface text-gh-text font-medium'
+                    : 'text-gh-muted hover:bg-gh-surface hover:text-gh-text'
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
+            <div className="mt-3 flex items-center gap-3 border-t border-gh-border pt-3 px-3">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={link.name}
+                  className="text-gh-muted transition-colors hover:text-gh-text"
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   )
 }
