@@ -7,9 +7,12 @@ const delays = ['delay-[0ms]', 'delay-[100ms]', 'delay-[200ms]', 'delay-[300ms]'
 export default function Skills() {
   const [ref, inView] = useInView()
   const [groups, setGroups] = useState([])
+  const [error, setError] = useState('')
 
   useEffect(() => {
-    getSkills().then((res) => setGroups(res.data))
+    getSkills()
+      .then((res) => setGroups(res.data))
+      .catch(() => setError('Could not load skills right now.'))
   }, [])
 
   return (
@@ -20,6 +23,7 @@ export default function Skills() {
       }`}
     >
       <h2 className="mb-8 text-2xl font-semibold text-gh-text">Skills</h2>
+      {error && <p className="mb-4 text-sm text-gh-danger">{error}</p>}
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {groups.map((group, index) => (
           <div

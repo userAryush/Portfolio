@@ -5,9 +5,12 @@ import { getAbout } from '../services/api'
 export default function About() {
   const [ref, inView] = useInView()
   const [description, setDescription] = useState('')
+  const [error, setError] = useState('')
 
   useEffect(() => {
-    getAbout().then((res) => setDescription(res.data.description))
+    getAbout()
+      .then((res) => setDescription(res.data.description))
+      .catch(() => setError('Could not load about section right now.'))
   }, [])
 
   return (
@@ -18,7 +21,10 @@ export default function About() {
       }`}
     >
       <h2 className="mb-8 text-2xl font-semibold text-gh-text">About Me</h2>
-      <p className="leading-8 text-gh-muted">{description}</p>
+      {error
+        ? <p className="text-sm text-gh-danger">{error}</p>
+        : <p className="leading-8 text-gh-muted">{description}</p>
+      }
     </div>
   )
 }

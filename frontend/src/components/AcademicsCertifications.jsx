@@ -12,7 +12,8 @@ export default function AcademicsCertifications() {
   const resolveCertificateUrl = (url) => {
     if (!url) return ''
     if (url.startsWith('http')) return url
-    return `http://localhost:8000${url}`
+    const base = (import.meta.env.VITE_API_URL || 'http://localhost:8000/api').replace('/api', '')
+    return `${base}${url}`
   }
 
   useEffect(() => {
