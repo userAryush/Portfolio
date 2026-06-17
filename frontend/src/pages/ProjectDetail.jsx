@@ -127,6 +127,16 @@ export default function ProjectDetail() {
                 API Documentation
               </a>
             )}
+            {project.qa_sheet_link && (
+              <a
+                href={project.qa_sheet_link}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-lg border border-gh-border px-4 py-2 text-sm transition-transform duration-150 hover:scale-105 active:scale-95"
+              >
+                QA Tests
+              </a>
+            )}
           </div>
         </div>
 
@@ -152,6 +162,46 @@ export default function ProjectDetail() {
               </div>
             </div>
           </div>
+
+          {project.qa_testing_type && (
+            <div className="rounded-xl border border-gh-border bg-gh-surface p-5">
+              <p className="mb-3 text-lg text-gh-muted">Testing</p>
+              <div className="space-y-4">
+                <div className="flex flex-wrap gap-3">
+                  <span className="rounded border border-[#1f3a5f] bg-[#0c1e3a] px-2 py-0.5 text-xs text-gh-accent">
+                    {project.qa_testing_type}
+                  </span>
+                  {normalizeToArray(project.qa_tags).map((tag, i) => (
+                    <span
+                      key={`${tag}-${i}`}
+                      className="rounded border border-gh-border px-2 py-0.5 text-xs text-gh-muted"
+                    >
+                      {String(tag)}
+                    </span>
+                  ))}
+                </div>
+                {project.qa_description && (
+                  <p className="text-sm text-gh-text">{project.qa_description}</p>
+                )}
+                {(project.qa_total > 0 || project.qa_passed > 0 || project.qa_failed > 0) && (
+                  <div className="flex gap-6 text-sm">
+                    <div className="text-center">
+                      <p className="text-xl font-semibold text-gh-text">{project.qa_total}</p>
+                      <p className="text-xs text-gh-muted">Total</p>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-xl font-semibold text-gh-success">{project.qa_passed}</p>
+                      <p className="text-xs text-gh-muted">Passed</p>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-xl font-semibold text-gh-danger">{project.qa_failed}</p>
+                      <p className="text-xs text-gh-muted">Failed</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <Footer />

@@ -1,0 +1,323 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$P9KOoW6vteSL7i0rOk4Eiq$k1eMCxBFibmwi810rwVmnLtvpuSLhrizrixK54j/gDQ=",
+    "last_login": "2026-06-08T01:57:37.850Z",
+    "is_superuser": true,
+    "username": "aryush",
+    "first_name": "",
+    "last_name": "",
+    "email": "khatriaryush@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-04-25T11:06:50.037Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$KpsBfyhWSrjUiNazbJdYhn$DnyJS/fmTPq/QjM745F6W7C+3x+Pp5fVJyXt8pch3+Y=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-06-08T02:29:13.648Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$pv93cUZ4wBS8EtyC10hPCe$6RXO7BQrtNR72q6SAwHyxCAiq8+LYQhONJQTTg+FaZk=",
+    "last_login": "2026-06-16T12:53:34.837Z",
+    "is_superuser": true,
+    "username": "brother",
+    "first_name": "",
+    "last_name": "",
+    "email": "brother@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-06-16T11:43:46.479Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "base.project",
+  "pk": 1,
+  "fields": {
+    "title": "Advanced E-commerce System",
+    "description": "This project is a high-performance backend service engineered with Django REST Framework (DRF) to provide a scalable and secure API for resource management. \r\nThe architecture leverages JWT (JSON Web Tokens) for stateless authentication and a custom-built CRUD system that handles complex data relationships via optimized serializers. \r\nBy implementing advanced filtering logic and JSONField integration for flexible metadata storage, the system ensures high data integrity while remaining adaptable to varying front-end requirements. \r\nThe backend is designed with a focus on security, featuring strict CSRF configurations and role-based access to ensure protected communication between the client and the server.",
+    "tech_stack": [
+      "Python",
+      "Django",
+      "Django REST Framework",
+      "MySQL"
+    ],
+    "features": [
+      "Multi role system with Admin, Supplier, Customer and Delivery Personnel",
+      "Role based authentication and permission control",
+      "Complete CRUD operations for products, orders, inventory and deliveries",
+      "Advanced product search and filtering by name, category and price",
+      "Order management with status tracking and filtering",
+      "Supplier inventory management with stock monitoring",
+      "Pagination for product listings, orders and inventory",
+      "Admin analytics dashboard with revenue and order insights",
+      "Supplier dashboard for inventory and delivery tracking",
+      "Email notifications for order confirmation and delivery updates",
+      "Low stock alert system for suppliers",
+      "Real time notifications for order status and delivery assignment",
+      "RESTful API design with clean and scalable architecture",
+      "Optional payment integration with Stripe or PayPal",
+      "Deployment ready setup with production configuration",
+      "Well documented APIs with test coverage"
+    ],
+    "github_link": "https://github.com/userAryush/Inventory-Management-System-using-Django-DRF",
+    "api_docs_link": "https://documenter.getpostman.com/view/38648701/2sB34ijeiu",
+    "live_link": "",
+    "status": "Practice",
+    "category": "Django",
+    "created_at": "2026-04-25T11:35:27.307Z",
+    "qa_testing_type": "",
+    "qa_description": "",
+    "qa_tags": [],
+    "qa_total": 0,
+    "qa_passed": 0,
+    "qa_failed": 0,
+    "qa_sheet_link": ""
+  }
+},
+{
+  "model": "base.project",
+  "pk": 2,
+  "fields": {
+    "title": "HCK - Community Management System",
+    "description": "Herald Community Konnect (HCKonnect) is a web-based centralized platform that is\r\nspecially designed for the engagement of the college community and students. It assists\r\nstudents, communities, and college administrators in uniting by offering different sections\r\nfor sharing announcements/news, managing events, uploading/sharing resources, and\r\nengaging in discussions, ensuring better engagement of students in college communities.",
+    "tech_stack": [
+      "Python",
+      "Django",
+      "Django REST Framework",
+      "PostgreSQL",
+      "React",
+      "Tailwind"
+    ],
+    "features": [
+      "Member Management"
+    ],
+    "github_link": "https://github.com/userAryush/HCKonnect-CommunityManagementSystem",
+    "api_docs_link": "",
+    "live_link": "",
+    "status": "Working",
+    "category": "Full-Stack",
+    "created_at": "2026-04-26T10:52:43.893Z",
+    "qa_testing_type": "Test Cases",
+    "qa_description": "",
+    "qa_tags": [],
+    "qa_total": 48,
+    "qa_passed": 40,
+    "qa_failed": 8,
+    "qa_sheet_link": "https://docs.google.com/spreadsheets/d/1dxNV2C89txGHFhbxOGKFYgAJ8CWLrxxFCYpGZ4iijE8/edit?usp=sharing"
+  }
+},
+{
+  "model": "base.contactmessage",
+  "pk": 1,
+  "fields": {
+    "name": "hi",
+    "email": "brother@gmail.com",
+    "message": "im hiring. Interested?",
+    "sent_at": "2026-04-26T02:34:01.445Z"
+  }
+},
+{
+  "model": "base.aboutsection",
+  "pk": 1,
+  "fields": {
+    "description": "Hi, I'm Aryush Khatri Aspiring Backend Developer & Recent Computer Science graduate with a interest in backend development and software quality assurance. During my studies I got hands-on with Django, Django REST Framework, and FastAPI, building projects that involved REST API design, JWT authentication, Role-Based Access Control, and relational databases like PostgreSQL and MySQL. I have also explored the QA side of development through test case design, functional and regression testing, API validation using Postman, and defect tracking with Jira. I enjoy writing clean, well-structured code and thinking carefully about how systems are designed, not just how they work on the surface. I am currently seeking my first full-time role or internship where I can contribute, keep learning, and grow alongside a team."
+  }
+},
+{
+  "model": "base.skillgroup",
+  "pk": 1,
+  "fields": {
+    "title": "Languages",
+    "items": [
+      "Python (strong fundamentals)",
+      "C",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "order": 0
+  }
+},
+{
+  "model": "base.skillgroup",
+  "pk": 2,
+  "fields": {
+    "title": "Backend Frameworks",
+    "items": [
+      "Django",
+      "Django REST Framework (DRF)",
+      "FastAPI"
+    ],
+    "order": 1
+  }
+},
+{
+  "model": "base.skillgroup",
+  "pk": 3,
+  "fields": {
+    "title": "Databases & ORM",
+    "items": [
+      "PostgreSQL",
+      "MySQL",
+      "SQLite",
+      "Django ORM",
+      "SQLAlchemy (basic)"
+    ],
+    "order": 3
+  }
+},
+{
+  "model": "base.skillgroup",
+  "pk": 4,
+  "fields": {
+    "title": "Frontend",
+    "items": [
+      "React (basic)",
+      "Bootstrap",
+      "Tailwind CSS"
+    ],
+    "order": 4
+  }
+},
+{
+  "model": "base.skillgroup",
+  "pk": 5,
+  "fields": {
+    "title": "Tools",
+    "items": [
+      "Git",
+      "Postman (API documentation & testing)",
+      "Figma",
+      "Unity"
+    ],
+    "order": 5
+  }
+},
+{
+  "model": "base.skillgroup",
+  "pk": 6,
+  "fields": {
+    "title": "Exploring",
+    "items": [
+      "Docker"
+    ],
+    "order": 8
+  }
+},
+{
+  "model": "base.skillgroup",
+  "pk": 7,
+  "fields": {
+    "title": "Backend Practices",
+    "items": [
+      "Redis (caching)",
+      "Celery (async tasks)",
+      "Payment integration (Stripe/Khalti)",
+      "JWT authentication/OAuth2",
+      "REST API design",
+      "Rate limiting",
+      "Alembic (migrations)"
+    ],
+    "order": 2
+  }
+},
+{
+  "model": "base.skillgroup",
+  "pk": 8,
+  "fields": {
+    "title": "Others",
+    "items": [
+      "Problem solving",
+      "Wireframing (Figma)",
+      "Project Management"
+    ],
+    "order": 7
+  }
+},
+{
+  "model": "base.skillgroup",
+  "pk": 9,
+  "fields": {
+    "title": "Quality Assurance",
+    "items": [
+      "Manual testing",
+      "Postman/Swagger (API testing)",
+      "Test case writing",
+      "Bug reporting"
+    ],
+    "order": 6
+  }
+},
+{
+  "model": "base.academiccertification",
+  "pk": 1,
+  "fields": {
+    "institute": "Bal Kalyan Vidya Mandir(B.K.V.M)",
+    "year": "2078 B.S.",
+    "course": "S.E.E",
+    "gpa": "3.85",
+    "certificate": "",
+    "created_at": "2026-04-25T11:09:08.853Z"
+  }
+},
+{
+  "model": "base.academiccertification",
+  "pk": 2,
+  "fields": {
+    "institute": "Bal Kalyan Vidya Mandir(B.K.V.M)",
+    "year": "2078 - 2080 B.S.",
+    "course": "+2(S.L.C)",
+    "gpa": "3.56",
+    "certificate": "",
+    "created_at": "2026-04-25T11:12:29.616Z"
+  }
+},
+{
+  "model": "base.academiccertification",
+  "pk": 3,
+  "fields": {
+    "institute": "Herald College Kathmandu",
+    "year": "2080 - 2083 B.S.",
+    "course": "Bachelor's in Computer Science",
+    "gpa": "",
+    "certificate": "",
+    "created_at": "2026-04-25T11:14:23.695Z"
+  }
+},
+{
+  "model": "base.academiccertification",
+  "pk": 4,
+  "fields": {
+    "institute": "Herald College Kathmandu",
+    "year": "2081 (1 month)",
+    "course": "Database",
+    "gpa": "",
+    "certificate": "academic_certificates/database_certificate.jpg",
+    "created_at": "2026-04-25T11:15:22.585Z"
+  }
+}
+]

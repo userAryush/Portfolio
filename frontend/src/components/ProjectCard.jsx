@@ -28,6 +28,8 @@ export default function ProjectCard({
   status = 'Live',
   github_link,
   api_docs_link,
+  live_link,
+  qa_sheet_link,
   index,
   inView,
 }) {
@@ -35,6 +37,14 @@ export default function ProjectCard({
   const navigate = useNavigate()
   const delayClass = delays[index % delays.length]
   const techList = normalizeTechStack(tech_stack)
+
+  const priorityLink = live_link
+    ? { href: live_link, label: 'Live Demo' }
+    : api_docs_link
+    ? { href: api_docs_link, label: 'API Docs' }
+    : qa_sheet_link
+    ? { href: qa_sheet_link, label: 'QA Tests' }
+    : null
 
   return (
     <div
@@ -77,8 +87,8 @@ export default function ProjectCard({
     View Details
   </button>
 
-  {/* Right Side Group */}
-  <div className="flex items-center gap-4"> 
+  {/* Right Side: GitHub always + highest-priority link if available */}
+  <div className="flex items-center gap-4">
     <a
       href={github_link}
       target="_blank"
@@ -87,15 +97,14 @@ export default function ProjectCard({
     >
       GitHub
     </a>
-    
-    {api_docs_link && (
+    {priorityLink && (
       <a
-        href={api_docs_link}
+        href={priorityLink.href}
         target="_blank"
         rel="noreferrer"
-        className="w-fit text-xs text-gh-accent transition-colors hover:text-blue-300"
+        className="text-xs text-gh-accent transition-colors hover:text-blue-300"
       >
-        API Docs
+        {priorityLink.label}
       </a>
     )}
   </div>
